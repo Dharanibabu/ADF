@@ -1,0 +1,30 @@
+
+
+### Config file defines the behaviour of python logging framework ###
+
+version: 1
+disable_existing_loggers: False
+formatters:
+  simple:
+    format: "%(asctime)s %(name)-12s: %(levelname)-8s %(message)s"
+
+handlers:
+  console_handler:
+    class: logging.StreamHandler
+    level: INFO
+    formatter: simple
+    stream: ext://sys.stdout
+
+#   file_handler:
+#     class: logging.handlers.TimedRotatingFileHandler
+#     level: DEBUG
+#     formatter: simple
+#     filename: "script22.log"
+#     when: D
+#     interval: 1
+#     backupCount: 10
+#     encoding: utf8
+
+root:
+  level: DEBUG
+  handlers: [console_handler]
